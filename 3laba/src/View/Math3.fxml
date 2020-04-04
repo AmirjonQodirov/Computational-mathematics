@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+  <tabs>
+    <Tab text="Решение нелинейных уравнений">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="557.0" prefWidth="600.0">
+               <children>
+                  <VBox layoutX="14.0" layoutY="15.0" prefHeight="75.0" prefWidth="202.0">
+                     <children>
+                        <Label text="Выберите фукцию">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="F1" mnemonicParsing="false" selected="true" text="x^3-x-4">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Function" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="F2" mnemonicParsing="false" text="x^2+sin(x-1)" toggleGroup="$Function" />
+                        <RadioButton fx:id="F3" mnemonicParsing="false" text="e^x-x-2" toggleGroup="$Function" />
+                        <RadioButton fx:id="F4" mnemonicParsing="false" text="x-4" toggleGroup="$Function" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="241.0" layoutY="16.0" prefHeight="88.0" prefWidth="209.0">
+                     <children>
+                        <Label text="Выберите метод">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="Method1" mnemonicParsing="false" selected="true" text="Метод деления пополам.">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Method" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="Method2" mnemonicParsing="false" text="Метод хорд." toggleGroup="$Method" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="14.0" layoutY="124.0" prefHeight="111.0" prefWidth="142.0">
+                     <children>
+                        <Label text="Границы">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="a:" />
+                        <TextField fx:id="a" prefHeight="25.0" prefWidth="128.0" promptText="a" />
+                        <Label text="b:" />
+                        <TextField fx:id="b" prefHeight="25.0" prefWidth="78.0" promptText="b" />
+                        <Label text="accuracy:" />
+                        <TextField fx:id="accuracy" prefHeight="25.0" prefWidth="27.0" promptText="accuracy" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="Box_Answer" layoutX="248.0" layoutY="124.0" prefHeight="161.0" prefWidth="209.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="209.0" text="Ответы:" textAlignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="Answer" prefHeight="154.0" prefWidth="209.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="14.0" layoutY="290.0" mnemonicParsing="false" onAction="#Tab1" text="Готово" />
+                  <LineChart fx:id="graph" layoutX="11.0" layoutY="329.0" prefHeight="287.0" prefWidth="578.0">
+                     <xAxis>
+                        <NumberAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </LineChart>
+                  <Button layoutX="457.0" layoutY="16.0" mnemonicParsing="false" onAction="#drawGraph" text="Построит график" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Решение систем нелинейных уравнений">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="447.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="143.0" text="Выберите ситему" textAlignment="CENTER">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="S1" mnemonicParsing="false" prefHeight="17.0" prefWidth="435.0" selected="true" text="F(x,y) = 0.1*x^2 + x + 0.2*y^2 - 0.3   |||    F(x,y) = 0.2*x^2 + y - 0.1*x*y - 0.7">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Systems" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="S2" mnemonicParsing="false" prefHeight="0.0" prefWidth="415.0" text="F(x,y) = x^2 + y^2 - 9 = 0                  |||   F(x,y) = x^3 - y = 0" toggleGroup="$Systems" />
+                        <RadioButton fx:id="S3" mnemonicParsing="false" prefHeight="0.0" prefWidth="408.0" text="F(x,y) = sin(x) - xy = 0                         |||    F(x,y) = (x + 4)^2 - 3 - y = 0" toggleGroup="$Systems" />
+                        <RadioButton fx:id="S4" mnemonicParsing="false" prefHeight="17.0" prefWidth="427.0" text="F(x,y) = x^3 - y^2 = 0                        |||    F(x,y) = y^2 - 5*x" toggleGroup="$Systems" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="14.0" layoutY="128.0" prefHeight="161.0" prefWidth="195.0">
+                     <children>
+                        <Label text="Начальные приближении">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="x:" />
+                        <TextField promptText="x0" fx:id="x0" />
+                        <Label text="y:" />
+                        <TextField fx:id="y0" promptText="y0" />
+                        <Label text="accuracy:" />
+                        <TextField fx:id="accuracy_for_systems" promptText="accuracy" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="14.0" layoutY="289.0" mnemonicParsing="false" onAction="#Tab2" text="Готово" />
+                  <LineChart fx:id="graphForSys" layoutX="14.0" layoutY="328.0" prefHeight="292.0" prefWidth="575.0">
+                    <xAxis>
+                      <NumberAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <VBox fx:id="Box_Answer_for_Sys" layoutX="285.0" layoutY="137.0" prefHeight="144.0" prefWidth="209.0">
+                     <children>
+                        <Label prefHeight="7.0" prefWidth="209.0" text="Ответы:" textAlignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="answer_for_sys" prefHeight="154.0" prefWidth="209.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="467.0" layoutY="26.0" mnemonicParsing="false" onAction="#drawGraphForSys" text="Построит график" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

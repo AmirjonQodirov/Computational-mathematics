@@ -1,0 +1,17 @@
+.chart-line-symbol {
+    -fx-background-insets: 0, 1;
+    -fx-padding: 0px;
+}
+
+/*.chart-series-line {*/
+/*    !*-fx-stroke: #15e90a;*!*/
+/*    -fx-stroke: #000;*/
+/*}*/
+
+.default-color0.chart-series-line {
+    -fx-stroke: #15e90a
+}
+.default-color1.chart-series-line {
+    -fx-stroke: red;
+}
+
